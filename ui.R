@@ -65,6 +65,33 @@ shinyUI(navbarPage("Interest",
                plotlyOutput('disease')
              )
            )
+  ),
+  
+  
+  tabPanel("Marine Protected Areas",
+           #page title
+           titlePanel("Marine Protected Areas"),
+           
+           #sidebar widgets/controls
+           sidebarLayout(
+             sidebarPanel(
+               selectInput("region", label = h3("Protected Area Region"), 
+                           choices = list("All" = 'All', "Region" = as.vector(distinct(select(mpa, REGION))), 
+                                          "Africa" = 'Africa', "Americas"='Americas', "Asia"='Asia', "Australia"='Australia', 
+                                          "Middle East"='Middle East', "Pacific"='Pacific'), 
+                           selected = 1
+                           ),
+               selectInput("reservetype", label = h3("Type of Reserve"),
+                           choices = list("All" = 'All', "Type" = as.vector(distinct(select(mpa, TYPE))))
+                           )
+             ),
+            
+             
+             # Render Marine Protected Areas map
+             mainPanel(
+               plotlyOutput('')
+             )
+           )
   )
 ))
 
