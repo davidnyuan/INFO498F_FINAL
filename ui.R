@@ -62,15 +62,14 @@ shinyUI(navbarPage("Interest",
                                 selectInput("reef_location",
                                             label = h3("Reef Type"),
                                             
-                                            choices = list("All" = 'All', "Non-Reef Coral Community" = 'Non-reef coral community',
-                                                           "Patch Reef" = 'Patch Reef', "Platform" = 'Platform', "All Structures Present" = 'All structures present',
-                                                           "Atoll" = 'Atoll', "Barrier/Fringing" = 'Barrier/Fringing', "Bank" = 'Bank', "Bank/Barrier" = 'Bank/Barrier',
-                                                           "Barrier/Fringing/Patch Reef" = 'Barrier/Fringing/Patch Reef', "Barrier" = 'Barrier', "Atoll/Fringing" = 'Atoll/Fringing',
-                                                           "Pseudo-atoll" = 'Pseudo-atoll', "Bank/Patch Reef" = 'Bank/Patch Reef', "Shoal" = 'Shoal', "Seamount" = 'Seatmount',
-                                                           "Various Structure Types Present" = 'Various structure types present', "Bank/Fringing" = 'Bank/Fringing',
-                                                           "Fringing/Shoal" = 'Fringing/shoal', "Fringing/Patch Reef" = 'Fringing/Patch Reef', "Barrier/Fringing/Platform" = 'Barrier/Fringing/Platform',
-                                                           "Fringing/Patch Reef/Platform" = 'Fringing/Patch Reef/Platform', "Fringing/Shoal" = 'Fringing/Shoal', "Barrier/Patch" = 'Barrier/Patch',
-                                                           "Fringing/Patch/Barrier" = 'Fringing/Patch/Barrier', "Fringing/Non-Reef Coral Community" = 'Fringing/Non-reef coral community'
+                                            choices = list("All" = 'All', "All Structures Present" = 'All structures present', "Anda" = 'Anda',
+                                                           "Atoll" = 'Atoll', "Bank" = 'Bank', "Barrier" = 'Barrier', 
+                                                           "Belizean Barrier Reef" = 'Belizean Barrier Reef', "Coralline Algae/Vermetid Reef" = 'Coralline algae/Vermetid reef',
+                                                           "Crescentic" = 'Crescentic', "Finging" = 'Finging', "Non-Reef Coral Community" = 'Non-reef coral community',
+                                                           "Patch" = 'Patch', "Planar" = 'Planar', "Platform" = 'Platform', "Pseudo-Atoll" = 'Pseudo-atoll',
+                                                           "Raised Reef" = 'Raised Reef', "Ribbon" = 'Ribbon', "Ring" = 'Ring', "Seamount" = 'Seamount', "Shoal" = 'Shoal',
+                                                           "Sta. Ysabel Island" = 'Sta. Ysabel Island', "Turneffe" = 'Turneffe'
+                                                           
                                             ),
                                             selected = "All")
                               ),
