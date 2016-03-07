@@ -1,10 +1,11 @@
 ## Plotly graph for Marine Protected Areas dataset
-
 library(dplyr)
 library(plotly)
 
 setwd('C:/Users/Gina/documents/info498f/info498f_final/data')
+
 mpa <- read.csv('MarineProtectedAreas.csv', stringsAsFactors = FALSE)
+mpa <- filter(mpa, !is.na(LAT), !is.na(LON))
 
 # Function that will take in the name of a region and type of marine reserve and represent
 # which regions have that type of reserve. This will also allow the user to see the size of

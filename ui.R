@@ -103,25 +103,32 @@ shinyUI(navbarPage("Interest",
            #sidebar widgets/controls
            sidebarLayout(
              sidebarPanel(
-               selectInput("region", label = h3("Protected Area Region"), 
-                           choices = list("All" = 'All', "Region" = as.vector(distinct(select(mpa, REGION))), 
+               selectInput("protectedregion", label = h3("Protected Area Region"), 
+                           choices = list("All" = 'All', 
                                           "Africa" = 'Africa', "Americas"='Americas', "Asia"='Asia', "Australia"='Australia', 
                                           "Middle East"='Middle East', "Pacific"='Pacific'), 
                            selected = 1
                            ),
-               selectInput("reservetype", label = h3("Type of Reserve"),
-                           choices = list("All" = 'All', "Type" = as.vector(distinct(select(mpa, TYPE))))
+               selectInput("protectedtype", label = h3("Type of Reserve"),
+                           choices = list("All" = 'All', "Biosphere Reserve (National)"='Biosphere Reserve (National)',
+                                          "Bird Sanctuary"='Bird Sanctuary',"Ecological Station"='Ecological Station',          
+                                          "Fish Habitat Reserve"='Fish Habitat Reserve',"Fish Sanctuary"='Fish Sanctuary',
+                                          "Marine National Park"='Marine National Park',"Marine Park"='Marine Park',                 
+                                          "Marine Reserve"='Marine Reserve',"Marine Sanctuary"='Marine Sanctuary',
+                                          "National Marine Sanctuary"='National Marine Sanctuary',"National Park"='National Park',               
+                                          "National Wildlife Refuge"='National Wildlife Refuge',"Nature Reserve"='Nature Reserve',
+                                          "Other area"='Other area',"Protected Area"='Protected Area',"Sanctuary"='Sanctuary',
+                                          "State Park"='State Park', "Wildlife Refuge"='Wildlife Refuge'
                            )
+               )
              ),
             
              
              # Render Marine Protected Areas map
              mainPanel(
-               plotlyOutput('')
+               plotlyOutput('protected')
              )
            )
+           
   )
 ))
-
-
-

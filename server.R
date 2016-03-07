@@ -25,4 +25,12 @@ shinyServer(function(input, output) {
       input$disease_type)
   })
   
+  #Allows user to see the marine protected areas in each continent and the type of reserve
+  output$protected <- renderPlotly({
+    protected_map(
+      input$protectedregion,
+      input$protectedtype
+    )
+  })
+  
 })
