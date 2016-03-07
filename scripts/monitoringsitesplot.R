@@ -1,12 +1,17 @@
 library(dplyr)
 library(plotly)
 
+# Returns a Plotly world map of coral reef locations with color defined by water depth
+# and a description of location name with program name beneath it
 monitoringmap <- function() {
+  # Read in CSV MonitoringSites.csv and prevent stringsAsFactors
   monitoring <- read.csv("data/MonitoringSites.csv", stringsAsFactors = FALSE)
   
+  # Remove items without a location and cast water depth as Numeric
   monitoring <- filter(monitoring, !is.na(LAT), !is.na(LON)) %>% 
     mutate(WATER_DEPTH = as.numeric(WATER_DEPTH))
   
+  # Define map colors
   g <- list(
     showland = TRUE,
     landcolor = toRGB("gray95"),
@@ -16,6 +21,7 @@ monitoringmap <- function() {
     subunitwidth = 0.5
   )
   
+  # Create map as described by function comment and return it
   plot_ly(monitoring, lat = LAT, lon = LON, text = paste0(SITE_NAME, ", <br />", PROGRAM_NAME),
           color = WATER_DEPTH, type = "scattergeo",  mode = "markers",  opacity = 0.8) %>% 
     layout(title="Monitored Coral Reef Locations", geo = g) %>% 
