@@ -1,5 +1,6 @@
 library(shiny)
 source("scripts/coralbleachingplot.R")
+source("scripts/reeflocationsplot.R")
 source("scripts/coraldiseasesplot.R")
 source("scripts/marineprotectedareasplot.R")
 
