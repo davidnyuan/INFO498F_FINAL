@@ -34,4 +34,11 @@ shinyServer(function(input, output) {
     )
   })
   
+  #Allows user to see something about coral reef locations
+  output$coral_location <- renderPlotly({
+    reeflocations(
+      input$reef_location
+    )
+  })
+  
 })

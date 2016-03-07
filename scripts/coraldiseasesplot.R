@@ -2,7 +2,7 @@ library(dplyr)
 library(plotly)
 
 # Dataset containing all data on diseases affecting coral reefs from 1970 to 2010
-data <- read.csv("data/CoralDiseases.csv", stringsAsFactors = FALSE)
+data <- read.csv("data/CoralDiseases.csv", stringsAsFactors = FALSE) %>% filter(!is.na(LAT),!is.na(LON))
 
 # Function used to generate an interactive map displayin the impact of disease spread in coral reefs.
 # Information on severity and location is provided for diseases affecting the variables determining 
@@ -24,15 +24,22 @@ disease_map <- function(year, disease_type) {
     subunitwidth = 0.5
   )
   
-  # Nametags that describe the prevelance of each disease within a population of coral reefs
-  percent_incidence_nametag <- lapply(df$PERCENTAGE_INCIDENCE, create_text)
-  # Interactive map
-   plot_ly(
-     df, lat = LAT, lon = LON, 
-     text = paste0(df$COUNTRY,": ",percent_incidence_nametag), 
-     type = "scattergeo",  color = DISEASE_REMARKS, mode = "markers",  opacity = 0.8) %>% 
-       layout(title=paste("Prevalence of", disease_type, "in",year), geo = g) %>% 
-  return()
+  # If there is no data an empty map is created
+  if(!nrow(df)) {
+    plot_ly(df,
+            type = "scattergeo") %>% 
+      layout(title=paste("Prevalence of", disease_type, "in",year), geo = g) %>% return()
+  } else {
+    
+    # Nametags that describe the prevelance of each disease within a population of coral reefs
+    percent_incidence_nametag <- lapply(df$PERCENTAGE_INCIDENCE, create_text)
+    # Interactive map
+    plot_ly(
+      df, lat = LAT, lon = LON, 
+      text = paste0(df$COUNTRY,": ",percent_incidence_nametag), 
+      type = "scattergeo",  color = DISEASE_REMARKS, mode = "markers",  opacity = 0.8) %>% 
+      layout(title=paste("Prevalence of", disease_type, "in",year), geo = g) %>% return()
+  }
 }
 
 # Function used to generate the text value to describe each data point on the map

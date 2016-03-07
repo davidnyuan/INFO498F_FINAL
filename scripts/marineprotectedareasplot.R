@@ -2,9 +2,8 @@
 library(dplyr)
 library(plotly)
 
-setwd('C:/Users/Gina/documents/info498f/info498f_final/data')
 
-mpa <- read.csv('MarineProtectedAreas.csv', stringsAsFactors = FALSE)
+mpa <- read.csv('data/MarineProtectedAreas.csv', stringsAsFactors = FALSE)
 mpa <- filter(mpa, !is.na(LAT), !is.na(LON))
 
 # Function that will take in the name of a region and type of marine reserve and represent
