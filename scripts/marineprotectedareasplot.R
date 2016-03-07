@@ -2,7 +2,6 @@
 library(dplyr)
 library(plotly)
 
-
 mpa <- read.csv('data/MarineProtectedAreas.csv', stringsAsFactors = FALSE)
 mpa <- filter(mpa, !is.na(LAT), !is.na(LON))
 
@@ -10,8 +9,9 @@ mpa <- filter(mpa, !is.na(LAT), !is.na(LON))
 # which regions have that type of reserve. This will also allow the user to see the size of
 # the reef protected area
 marine_protected <- function(region, reservetype) {
-  mpa$hover <- paste(mpa$NAME, "<br>", "Reserve Type", mpa$TYPE, "<br>", "Year Established", mpa$YEAR_ESTABLISHED)
-
+  mpa$hover <- paste(mpa$NAME, "<br>", "Reserve Type:", mpa$TYPE, "<br>", "Year Established:", mpa$YEAR_ESTABLISH)
+  
+  # determines how the dataframes will be made depending on user input
   if (region == 'All' && reservetype == 'All') {
     df <- mpa#select(mpa, REGION, TYPE, LAT, LON)
   } else if (reservetype == 'All') {

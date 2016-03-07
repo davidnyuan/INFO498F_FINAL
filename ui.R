@@ -80,19 +80,23 @@ shinyUI(navbarPage("Interest",
                             )
                    ),
                    
+                   # panel to see the Marine Protected Areas around the world or for a specific continent. Allows the user to
+                   # see which reserves are in each continent, the name of the reserve, and the year it was established
                    tabPanel("Marine Protected Areas",
-                            #page title
                             titlePanel("Marine Protected Areas"),
-                            
-                            #sidebar widgets/controls
                             sidebarLayout(
                               sidebarPanel(
+                                
+                                # widget to select the continent to see where reserves are
                                 selectInput("protectedregion", label = h3("Protected Area Region"), 
                                             choices = list("All" = 'All', 
                                                            "Africa" = 'Africa', "Americas"='Americas', "Asia"='Asia', "Australia"='Australia', 
                                                            "Middle East"='Middle East', "Pacific"='Pacific'), 
                                             selected = 1
                                 ),
+                                
+                                # widget to select the type of reserve. only included reserves with more than 30 of the same type of reserve
+                                #   to cut down the selection
                                 selectInput("protectedtype", label = h3("Type of Reserve"),
                                             choices = list("All" = 'All', "Biosphere Reserve (National)"='Biosphere Reserve (National)',
                                                            "Bird Sanctuary"='Bird Sanctuary',"Ecological Station"='Ecological Station',          
