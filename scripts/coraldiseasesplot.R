@@ -31,8 +31,8 @@ disease_map <- function(year, disease_type) {
      df, lat = LAT, lon = LON, 
      text = paste0(df$COUNTRY,": ",percent_incidence_nametag), 
      type = "scattergeo",  color = DISEASE_REMARKS, mode = "markers",  opacity = 0.8) %>% 
-       layout(title=paste("Prevalence of", disease_type, "in",year), geo = g)
-   %>% return()
+       layout(title=paste("Prevalence of", disease_type, "in",year), geo = g) %>% 
+  return()
 }
 
 # Function used to generate the text value to describe each data point on the map
