@@ -14,14 +14,13 @@ marine_protected <- function(region, reservetype) {
   mpa$hover <- paste(mpa$NAME, "<br>", "Reserve Type", mpa$TYPE, "<br>", "Year Established", mpa$YEAR_ESTABLISHED)
 
   if (region == 'All' && reservetype == 'All') {
-    df <- select(mpa, REGION, TYPE)
+    df <- mpa#select(mpa, REGION, TYPE, LAT, LON)
   } else if (reservetype == 'All') {
     df <- filter(mpa, REGION == region)
   } else if (region == 'All') {
     df <- filter(mpa, TYPE == reservetype)
   } else { 
-    df <- filter(mpa, REGION == region)
-    df <- filter(df, TYPE == reservetype)
+    df <- filter(mpa, REGION == region, TYPE == reservetype)
   }
   
   g <- list(
@@ -33,12 +32,11 @@ marine_protected <- function(region, reservetype) {
     countrycolor = toRGB("gray85")
   )
   
-  plot_ly(mpa, 
+  plot_ly(df, 
           lon = LON, lat = LAT, 
           text = hover,
           mode = 'markers',
           opacity = .8,
-          size = df$REEF_AREA_SIZE / 1000,
           color = df$REGION, type = 'scattergeo') %>% 
     layout(title=paste('Marine Protected Areas in', region), geo = g) %>% 
     return()

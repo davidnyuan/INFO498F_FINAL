@@ -1,6 +1,7 @@
 library(shiny)
 source("scripts/coralbleachingplot.R")
 source("scripts/coraldiseasesplot.R")
+source("scripts/marineprotectedareasplot.R")
 
 shinyServer(function(input, output) {
   # Allows user to find bleaching based on severity code
@@ -27,7 +28,7 @@ shinyServer(function(input, output) {
   
   #Allows user to see the marine protected areas in each continent and the type of reserve
   output$protected <- renderPlotly({
-    protected_map(
+    marine_protected(
       input$protectedregion,
       input$protectedtype
     )
