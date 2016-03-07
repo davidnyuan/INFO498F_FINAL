@@ -4,7 +4,8 @@ library(plotly)
 bleachmap <- function(code_severity) {
   bleaching <- read.csv("data/CoralBleaching.csv", stringsAsFactors = FALSE)
   
-  bleaching <- filter(bleaching, SEVERITY_CODE %in% eval(parse(text = "code_severity")))
+  bleaching <- filter(bleaching, SEVERITY_CODE %in% eval(parse(text = "code_severity"))) %>% 
+    filter(!is.na(LAT), !is.na(LON))
   m <- list(
     colorbar = list(title = "Map of Coral Bleaching"),
     size = 8, opacity = 0.8, symbol = 'circle'
