@@ -8,7 +8,7 @@ shinyUI(navbarPage("Interest",
                             #page title
                             titlePanel("Coral Bleaching"),
                             
-                            #sidebar widgets/controls
+                            # controls which bleach severity (low, medium, or high) is shown in the map
                             sidebarLayout(
                               sidebarPanel(
                                 selectInput("bleach_severity", label = h3("Bleaching Severity"), 
@@ -29,12 +29,15 @@ shinyUI(navbarPage("Interest",
                             # Controls
                             sidebarLayout(
                               sidebarPanel(
-                                # Choose trait
+                                
+                                # widget to select a year between 1970 and 2010
                                 sliderInput("disease_year",
                                             label = h3("Year"),
                                             min = 1970,
                                             max = 2010,
                                             value = 2000),
+                                
+                                # widget to see all types or one of the more prevalent diseases in coral reefs
                                 selectInput("disease_type",
                                             label = h3("Disease"),
                                             choices = list("All" = "All", "Aspergillosis" = "Aspergillosis", "Bacterial Bleaching" = "Bacterial bleaching",
@@ -55,10 +58,12 @@ shinyUI(navbarPage("Interest",
                             )
                    ),
                    tabPanel("Reef Locations",
+                            #page title
                             titlePanel("Coral Reef Locations"),
                             sidebarLayout(
                               sidebarPanel(
-                                # Choose type
+                                
+                                # Choose coral reef type
                                 selectInput("reef_location",
                                             label = h3("Reef Type"),
                                             
@@ -82,6 +87,7 @@ shinyUI(navbarPage("Interest",
                    # panel to see the Marine Protected Areas around the world or for a specific continent. Allows the user to
                    # see which reserves are in each continent, the name of the reserve, and the year it was established
                    tabPanel("Marine Protected Areas",
+                            # page title
                             titlePanel("Marine Protected Areas"),
                             sidebarLayout(
                               sidebarPanel(

@@ -4,8 +4,8 @@ source("scripts/coraldiseasesplot.R")
 source("scripts/marineprotectedareasplot.R")
 
 shinyServer(function(input, output) {
-  # Allows user to find bleaching based on severity code
   
+  # Allows user to find bleaching based on severity code
   output$bleach <- renderPlotly({
     bleachmap(
       #In case user wants to see all severity codes
