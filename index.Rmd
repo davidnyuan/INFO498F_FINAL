@@ -7,7 +7,7 @@ output: html_document
 library(knitr)
 library(dplyr)
 library(plotly)
-setwd("~/Desktop/Winter 2015-2016/info498f/INFO498F_FINAL")
+
 
 
 bleaching <- read.csv("data/CoralBleaching.csv", stringsAsFactors = FALSE)

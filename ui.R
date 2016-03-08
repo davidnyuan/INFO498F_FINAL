@@ -122,5 +122,25 @@ shinyUI(navbarPage("Interest",
                               )
                             )
                             
+                   ),
+                   navbarMenu("More",
+                              tabPanel("About Our Graphs",
+                                 fluidRow(
+                                   column(4,
+                                          includeMarkdown("about/about_graphs.md")
+                                   )
+                                 )
+                              ),
+                              tabPanel("About Coral Bleaching",
+                                 fluidRow(
+                                   column(4,
+                                          includeMarkdown("about/about_bleach.md")
+                                   ),
+                                   column(1,
+                                          imageOutput("image")
+                                   )
+                                 )         
+                              )
                    )
+
 ))

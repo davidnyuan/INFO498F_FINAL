@@ -42,4 +42,11 @@ shinyServer(function(input, output) {
     )
   })
   
+  output$image <- renderImage({
+    return(list(
+      src = "imgs/noaa_diagram.jpg",
+      filetype = "image.jpeg",
+      alt = "NOAA Coral Bleaching Diagram"
+    ))
+  }, deleteFile = FALSE)
 })
