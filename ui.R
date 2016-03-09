@@ -2,7 +2,8 @@ library(shiny)
 library(plotly)
 
 #Shiny UI
-shinyUI(navbarPage("Interest",
+shinyUI(navbarPage("FD2",
+                   theme = "bootstrap.css",
                    # Tabs for separate graphs
                    tabPanel("Coral Bleaching",
                             #page title
@@ -35,7 +36,8 @@ shinyUI(navbarPage("Interest",
                                             label = h3("Year"),
                                             min = 1970,
                                             max = 2010,
-                                            value = 2000),
+                                            value = 2000,
+                                            sep = ""),
                                 
                                 # widget to see all types or one of the more prevalent diseases in coral reefs
                                 selectInput("disease_type",
