@@ -3,6 +3,7 @@ source("scripts/coralbleachingplot.R")
 source("scripts/reeflocationsplot.R")
 source("scripts/coraldiseasesplot.R")
 source("scripts/marineprotectedareasplot.R")
+source("scripts/bleachingglobal.R")
 
 shinyServer(function(input, output) {
   
@@ -18,6 +19,16 @@ shinyServer(function(input, output) {
         severity <- input$bleach_severity
       }
     )
+  })
+  
+  # Allows user to find bleaching based on year
+  output$bleachyear <- renderPlotly({
+    bleachtime(input$bleachvswarming)
+  })
+  
+  # Allows user to see global warming trends based on year
+  output$globalyear <- renderPlotly({
+    globalwarming(input$bleachvswarming)
   })
   
   # Allows user to see the impact and spread of different types of disease from 1970 to 2010
@@ -41,6 +52,7 @@ shinyServer(function(input, output) {
       input$reef_location
     )
   })
+  
   
   output$image <- renderImage({
     return(list(

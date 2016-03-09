@@ -123,6 +123,24 @@ shinyUI(navbarPage("Interest",
                             )
                             
                    ),
+                   tabPanel("Bleaching vs Warming",
+                            #page title
+                            titlePanel("Bleaching vs Warming"),
+                            
+                            # Controls which Bleaching and Global Warming Data is Shown
+                            sidebarLayout(
+                              sidebarPanel(
+                                sliderInput("bleachvswarming", label = h3("Year"), 
+                                            min = 1965, max = 2012, value = 1965, sep = "")
+                              ),
+                              
+                              # Render Coral Bleaching Map and Global Warming Histogram
+                              mainPanel(
+                                plotlyOutput("bleachyear"),
+                                plotlyOutput("globalyear")
+                              )
+                            )
+                   ),
                    navbarMenu("More",
                               tabPanel("About Our Graphs",
                                  fluidRow(
