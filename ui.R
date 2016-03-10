@@ -86,6 +86,12 @@ shinyUI(navbarPage("FD2",
                             )
                    ),
                    
+                   tabPanel("Monitoring Sites",
+                            #page title
+                            titlePanel("Monitoring Site Locations"),
+                            plotlyOutput('monitoring_location')
+                   ),
+                   
                    # panel to see the Marine Protected Areas around the world or for a specific continent. Allows the user to
                    # see which reserves are in each continent, the name of the reserve, and the year it was established
                    tabPanel("Marine Protected Areas",

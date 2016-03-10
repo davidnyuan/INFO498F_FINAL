@@ -1,9 +1,10 @@
 library(shiny)
 source("scripts/coralbleachingplot.R")
 source("scripts/reeflocationsplot.R")
+source("scripts/reeflocationsplot.R")
 source("scripts/coraldiseasesplot.R")
 source("scripts/marineprotectedareasplot.R")
-source("scripts/bleachingglobal.R")
+source("scripts/monitoringsitesplot.R")
 
 shinyServer(function(input, output) {
   
@@ -51,6 +52,11 @@ shinyServer(function(input, output) {
     reeflocations(
       input$reef_location
     )
+  })
+  
+  #Allows user to see coral reef monitoring locations
+  output$monitoring_location <- renderPlotly({
+    monitoringmap()
   })
   
   
