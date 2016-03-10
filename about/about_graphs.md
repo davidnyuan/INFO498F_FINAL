@@ -13,4 +13,4 @@ Keep this instructions so everyone can see them.
 Monitoring Site Locations
 =========================
 
-This is a map of all of the monitoring locations of coral reefs throughout the world. The water depth of the individual sites is coded in the color of the marker, and when hovering over individual points you can see the name of the monitoring site, and the name of the organization monitoring the site.
+This is a map of all of the monitoring locations of coral reefs throughout the world. The water depth of the individual sites is coded in the color of the marker, and when hovering over individual points you can see the name of the monitoring site, and the name of the organization monitoring the site. Some of the locations in the original data set lacked coordinates, and those are omitted in the map.
