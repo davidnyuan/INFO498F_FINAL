@@ -56,7 +56,9 @@ shinyServer(function(input, output) {
   
   #Allows user to see coral reef monitoring locations
   output$monitoring_location <- renderPlotly({
-    monitoringmap()
+    monitoringmap(
+      input$monitoring_location_type
+    )
   })
   
   
