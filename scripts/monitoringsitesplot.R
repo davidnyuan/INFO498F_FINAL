@@ -11,8 +11,11 @@ monitoringmap <- function(monitoring_program) {
   monitoring <- filter(monitoring, !is.na(LAT), !is.na(LON)) %>% 
     mutate(WATER_DEPTH = as.numeric(WATER_DEPTH))
   
+  # If the user is asking for a specific monitoring program, filter to only those entries
   if(monitoring_program != 'all') {
     monitoring <- filter(monitoring, PROGRAM_CODE == monitoring_program)
+    
+    # If water depth isn't available for this program, set them all to 0 for Plotly
     if(all(is.na(c(NA, NaN)))) {
       monitoring <- mutate(monitoring, WATER_DEPTH = 0)
     }
