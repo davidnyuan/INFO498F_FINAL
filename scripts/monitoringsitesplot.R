@@ -13,6 +13,9 @@ monitoringmap <- function(monitoring_program) {
   
   if(monitoring_program != 'all') {
     monitoring <- filter(monitoring, PROGRAM_CODE == monitoring_program)
+    if(all(is.na(c(NA, NaN)))) {
+      monitoring <- mutate(monitoring, WATER_DEPTH = 0)
+    }
   }
   
   # Define map colors
