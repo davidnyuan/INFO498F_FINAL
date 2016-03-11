@@ -13,7 +13,7 @@ marine_protected <- function(region, reservetype) {
   
   # determines how the dataframes will be made depending on user input
   if (region == 'All' && reservetype == 'All') {
-    df <- mpa#select(mpa, REGION, TYPE, LAT, LON)
+    df <- mpa
   } else if (reservetype == 'All') {
     df <- filter(mpa, REGION == region)
   } else if (region == 'All') {
@@ -21,6 +21,7 @@ marine_protected <- function(region, reservetype) {
   } else { 
     df <- filter(mpa, REGION == region, TYPE == reservetype)
   }
+  
   
   g <- list(
     showland = TRUE,
@@ -31,12 +32,19 @@ marine_protected <- function(region, reservetype) {
     countrycolor = toRGB("gray85")
   )
   
-  plot_ly(df, 
-          lon = LON, lat = LAT, 
-          text = hover,
-          mode = 'markers',
-          opacity = .8,
-          color = df$REGION, type = 'scattergeo') %>% 
-    layout(title=paste('Marine Protected Areas in', region), geo = g) %>% 
-    return()
+  # If there is no data an empty map is created
+  if(!nrow(df)) {
+    plot_ly(df,
+            type = 'scattergeo') %>% 
+      layout(title=paste("Marine Protected Areas in", region), geo = g) %>% return()
+  } else {
+    plot_ly(df, 
+            lon = LON, lat = LAT, 
+            text = hover,
+            mode = 'markers',
+            opacity = .8,
+            color = df$REGION, type = 'scattergeo') %>% 
+      layout(title=paste('Marine Protected Areas in', region), geo = g) %>% 
+      return()
+  }
 }
