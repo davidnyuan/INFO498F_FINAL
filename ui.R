@@ -251,6 +251,13 @@ shinyUI(navbarPage("FD2",
                                           includeMarkdown("about/about_bleach.md")
                                    )
                                  )         
+                              ),
+                              tabPanel("About Us",
+                                       fluidRow(
+                                         column(10,
+                                                includeMarkdown("about/about_us.md")
+                                         )
+                                       )         
                               )
                    )
 
