@@ -15,7 +15,7 @@ shinyUI(navbarPage("FD2",
                                 selectInput("bleach_severity", label = h3("Bleaching Severity"), 
                                             choices = list("All" = 'all', "No Bleaching/Undecided" = "NB/U", 
                                                            "Low" = 1, "Medium" = 2, "High" = 3), 
-                                            selected = 1)
+                                            selected = 'all')
                               ),
                               
                               # Render Coral Bleaching Map
@@ -221,6 +221,12 @@ shinyUI(navbarPage("FD2",
                               )
                             )
                    ),
+                   tabPanel("Next Steps",
+                            fluidRow(
+                              column(10,
+                                     includeMarkdown("about/next.md"))
+                            )
+                    ),
                    navbarMenu("More",
                               tabPanel("About Our Graphs",
                                  fluidRow(
