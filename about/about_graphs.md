@@ -1,16 +1,25 @@
-----------
-Keep this instructions so everyone can see them.
-- Summarise what your graph is telling
-- Include any relevant information (time span, etc)
-- Include any code used to help determine how to display the data.  For example:
-	```
-	data %>% group_by(x) %>% summarise(n = n() %>% filter(n > 30)
-	```
-	Was used to determine which diseases I should allow users to specify in my select menu
-- Keep it short.  A summary for each of the five graphs will be displayed on one page in the More tab on Shiny
-----------
+# **Coral Bleaching**
 
-Monitoring Site Locations
-=========================
+## **What is coral bleaching?**
+#### Coral bleaching is the loss in pigmentation of the coral plant, leading coral plants susceptible to disease.
+#### When coral bleaching occurs, the coral may survive but is placed under more stress leading to reduced survivability.
 
-This is a map of all of the monitoring locations of coral reefs throughout the world. The water depth of the individual sites is coded in the color of the marker, and when hovering over individual points you can see the name of the monitoring site, and the name of the organization monitoring the site. Some of the locations in the original data set lacked coordinates, and those are omitted in the map. Users can then select a specific monitoring program they want to see the data from, or elect to see them all on one graph.
+#### The following picture supplied by the National Oceanic and Atmospheric Administration demostrates the situation:
+
+![noaa](imgs/noaa_diagram.jpg)
+
+### **At what rate have algae and bacteria levels been dropping, at what rate has coral bleaching been rising, and what is the expected outlook for both?**
+### **Where in the world are coral reefs most affected, and why is this the case?**
+
+![temp_2010](imgs/ave_temp_2010.png)
+
+#### Due to coral's symbiotic relationship with algae, these rise in temperatures have led to an increase in coral bleaching around the world. The most prominent regions affected by coral bleaching include reefs in the Indian ocean and Oceanic areas. The data displayed is from 2010:
+
+![reefs_2010](imgs/bleaching_2010.png)
+
+#### As global temperatures are expected to continue rising, the severity of coral bleaching is also expected to rise.  Without any intervention, coral reefs will become more susceptible to disease.  However, conservation efforts are effective reducing the impact of diseases at target sites.  The spread of the Black-Band Disease in the Caribbean has seen major reduction in the past 20 years:
+
+![black_band](imgs/black_band.png)
+
+
+

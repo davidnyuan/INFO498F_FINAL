@@ -42,14 +42,24 @@ shinyUI(navbarPage("FD2",
                                 # widget to see all types or one of the more prevalent diseases in coral reefs
                                 selectInput("disease_type",
                                             label = h3("Disease"),
-                                            choices = list("All" = "All", "Aspergillosis" = "Aspergillosis", "Bacterial Bleaching" = "Bacterial bleaching",
-                                                           "Black-Band Disease" = "Black-band Disease", "Blistering Necrosis" = "Blistering necrosis", 
-                                                           "Coral Hyperplasia" = "Coral hyperplasia", "Coral Tumours" = "Coral tumours",
-                                                           "Dark-Spot Disease" = "Dark-spot disease", "Disease Unspecified" = "Disease unspecified",
-                                                           "No Disease" = "No disease", "Patchy Necrosis/White Pox" = "Patchy necrosis/ white pox",
-                                                           "Rapid Wasting Disease" = "Rapid wasting disease", "Skeleton Eroding Band" = "Skeleton eroding band",
-                                                           "Unknown" = "Unknown", "White-Band Disease" = "White-band disease", "White Plague" = "White plague",
-                                                           "White Plague Type I" = "White plague type I", "White Plague Type II" = "White plague type II", 
+                                            choices = list("All" = "All", 
+                                                           "Aspergillosis" = "Aspergillosis", 
+                                                           "Bacterial Bleaching" = "Bacterial bleaching",
+                                                           "Black-Band Disease" = "Black-band Disease", 
+                                                           "Blistering Necrosis" = "Blistering necrosis", 
+                                                           "Coral Hyperplasia" = "Coral hyperplasia", 
+                                                           "Coral Tumours" = "Coral tumours",
+                                                           "Dark-Spot Disease" = "Dark-spot disease", 
+                                                           "Disease Unspecified" = "Disease unspecified",
+                                                           "No Disease" = "No disease", 
+                                                           "Patchy Necrosis/White Pox" = "Patchy necrosis/ white pox",
+                                                           "Rapid Wasting Disease" = "Rapid wasting disease", 
+                                                           "Skeleton Eroding Band" = "Skeleton eroding band",
+                                                           "Unknown" = "Unknown", 
+                                                           "White-Band Disease" = "White-band disease", 
+                                                           "White Plague" = "White plague",
+                                                           "White Plague Type I" = "White plague type I", 
+                                                           "White Plague Type II" = "White plague type II", 
                                                            "Yellow Band Disease" = "Yellow band disease"),
                                             selected = "All")
                               ),
@@ -221,27 +231,24 @@ shinyUI(navbarPage("FD2",
                               )
                             )
                    ),
-                   tabPanel("Next Steps",
-                            fluidRow(
-                              column(10,
-                                     includeMarkdown("about/next.md"))
-                            )
-                    ),
                    navbarMenu("More",
-                              tabPanel("About Our Graphs",
+                              tabPanel("What Is Coral Bleaching?",
                                  fluidRow(
-                                   column(4,
+                                   column(10,
                                           includeMarkdown("about/about_graphs.md")
                                    )
                                  )
                               ),
-                              tabPanel("About Coral Bleaching",
+                              tabPanel("Next Steps",
+                                       fluidRow(
+                                         column(10,
+                                                includeMarkdown("about/next.md"))
+                                       )
+                              ),
+                              tabPanel("About Our Data",
                                  fluidRow(
-                                   column(4,
+                                   column(10,
                                           includeMarkdown("about/about_bleach.md")
-                                   ),
-                                   column(1,
-                                          imageOutput("image")
                                    )
                                  )         
                               )
