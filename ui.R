@@ -156,7 +156,7 @@ shinyUI(navbarPage("FD2",
                                                            "Yearly Monitoring of the Iranian Coral Reefs in the northern Persian Gulf, Iran" =	"MICR"
                                                            
                                             ),
-                                            selected = "All")
+                                            selected = "all")
                               ),
                               mainPanel(
                                 plotlyOutput('monitoring_location')
