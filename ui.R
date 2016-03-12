@@ -258,7 +258,13 @@ shinyUI(navbarPage("FD2",
                                                 includeMarkdown("about/about_us.md")
                                          )
                                        )         
-                              )
+                              ),
+                              tabPanel("Pitch",
+                                       fluidRow(
+                                         column(10,
+                                                includeMarkdown("about/pitch.md")
+                                                )
+                                       ))
                    )
 
 ))
