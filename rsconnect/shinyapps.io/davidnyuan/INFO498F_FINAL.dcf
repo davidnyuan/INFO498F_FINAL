@@ -1,8 +1,8 @@
 name: INFO498F_FINAL
 account: davidnyuan
 server: shinyapps.io
-bundleId: 393427
+bundleId: 393611
 url: https://davidnyuan.shinyapps.io/INFO498F_FINAL/
-when: 1457728627.15395
+when: 1457744837.314
 asMultiple: FALSE
 asStatic: FALSE
